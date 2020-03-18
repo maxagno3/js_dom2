@@ -6,5 +6,62 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Forms</title>
   </head>
-  <body></body>
+
+  <body>
+    <div>
+      <form action="Sign Up" id="disappear">
+        <input type="text" placeholder="Your name." id="name" data-error="Name cant be empty!">
+        <input type="text" placeholder="E-mail" id="mail" data-error="This field can't be empty!">
+        <input type="text" placeholder="Password" id="pass" data-error="Password cant be empty!">
+        <input type="button" value="Sign Up" class="button">
+      </form>
+
+      <script>
+        
+        let name = document.querySelector("#name")
+        let email = document.querySelector("#mail")
+        let password = document.querySelector("#pass")
+        let button = document.querySelector(".button")
+        let form = document.querySelector("#disappear")
+
+        function change(){
+
+          if (name.value === ''){
+            
+            let error = name.dataset.error;
+            let p = document.createElement("p");
+            p.append(error);
+            document.body.append(p);
+
+          }else if(email.value === ''){
+            
+            let error2 = email.dataset.error;
+            let p = document.createElement("p");
+            p.append(error2);
+            form.append(p);
+            p.style.marginLeft = "180px";
+
+          }else if(password.value === ''){
+            
+            let error3 = password.dataset.error;
+            let p = document.createElement("p");
+            p.append(error3);
+            document.body.append(p);
+            p.style.marginLeft = "360px";
+          }else{
+
+            let p = document.createElement("p");
+            p.append(form);
+            p.innerText = `Your name is ${name.value} Your email: ${email.value} Your password is ${password.value}`;
+            document.body.append(p);
+
+          }
+          
+        }
+
+        button.addEventListener("click", change)
+
+      </script>
+    </div>
+  </body>
 </html>
