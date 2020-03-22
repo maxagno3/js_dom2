@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Excercise-3</title>
+</head>
+
+<style>
+    div {
+        width: 100%;
+        height: 500px;
+    }
+    
+    .container {
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    
+    button {
+        padding: 10px 30px;
+        font-size: 20px;
+        border-radius: 40px;
+        color: yellow;
+        background-color: transparent;
+    }
+    
+    button:hover {
+        background-color: teal;
+        color: wheat;
+        border: teal;
+    }
+    
+    .image {
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
+
+<body onload="randomImages()">
+    <h1>Models</h1>
+    <section class="container"></section>
+
+    <div class="image_property">
+        <img class="image">
+        <h4 class="name"></h4>
+        <p class="category"></p>
+    </div>
+
+    <script>
+        let h1 = document.querySelector("h1");
+        h1.innerText = "Click button on the images";
+        console.log(h1);
+
+        function randomImages() {
+            for (let i = 0; i < data.length; i++) {
+                let section = document.querySelector(".container");
+                let div = document.createElement("div");
+
+                div.style.backgroundImage = `url(${data[i].image})`;
+                div.style.backgroundSize = "cover";
+                let li = document.createElement("li");
+                li.setAttribute("data-index", li[i]);
+
+                let btn = document.createElement("button");
+                btn.innerText = "Click Here!";
+
+                document.body.append(div);
+                div.append(btn);
+                section.append(div);
+                btn.addEventListener("click", () => exhibition(data));
+            }
+        }
+
+        function exhibition(data) {
+            let modelImage = document.querySelector(".image");
+            modelImage.setAttribute("src", data.image);
+
+            let headName = document.querySelector(".name");
+            headName.innerText = data.name;
+
+            let imageCategory = document.querySelector(".category");
+            imageCategory.innerText = data.category;
+
+            console.log(modelImage)
+        }
+
+        let data = [{
+            image: "http://data.mavo.io/portfolio/images/pasted-image-1494464667397.png",
+            name: "Carwash",
+            category: "Painting"
+        }, {
+            image: "http://data.mavo.io/portfolio/images/pasted-image-1494528264937.png",
+            name: "Muck Mouth",
+            category: "Painting"
+        }, {
+            image: "http://data.mavo.io/portfolio/images/pasted-image-1494528646446.png",
+            name: "Fishwall",
+            category: "Painting"
+        }, {
+            image: "http://data.mavo.io/portfolio/images/web-coffe-marilyn.jpg",
+            name: "Web Coffe Marilyn",
+            category: "Painting"
+        }, {
+            image: "http://data.mavo.io/portfolio/images/pasted-image-1494903924970.png",
+            name: "Web 3 Jules",
+            category: "Painting"
+        }, {
+            image: "http://data.mavo.io/portfolio/images/web-electric3.jpg",
+            name: "Web electric3",
+            category: "Painting"
+        }];
+        // randomImages();
+    </script>
+</body>
+
+</html>
